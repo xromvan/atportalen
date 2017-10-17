@@ -36,23 +36,23 @@ class LoginScreen(GridLayout):
 
     def __init__(self, **kwargs):
 	
-	      super(LoginScreen, self).__init__(**kwargs)
+        super(LoginScreen, self).__init__(**kwargs)
         self.cols = 1
-        self.add_widget(Label(text="Välkomen AT läkare"))
+        self.add_widget(Label(text="Välkommen AT läkare"))
         self.add_widget(Label(text="Skriv in dina initialer"))
 				
         #Define Username widget
-        self.add_widget(Label(text='User Name'))
+        self.add_widget(Label(text='Användarnamn'))
         self.username = TextInput(multiline=False)
         self.add_widget(self.username)
 		
         #Define password widget
-        self.add_widget(Label(text='password'))
+        self.add_widget(Label(text='Lösenord'))
         self.password = TextInput(password=True, multiline=False)
         self.add_widget(self.password)
 		
 		#define a login button
-        self.add_widget(Button(text='Login'))
+        self.add_widget(Button(text='Logga in'))
 		# Binding should be added to respond to the press down event
 
 
