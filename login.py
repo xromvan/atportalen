@@ -22,7 +22,7 @@ class CustomLayout(FloatLayout):
         super(CustomLayout, self).__init__(**kwargs)
 
         with self.canvas.before:
-            Color(0, 1, 0, 1)  # color should be chnaged to bluem, will be bettger
+            Color(0, 1, 1, 1) 
             self.rect = Rectangle(size=self.size, pos=self.pos)
 
         self.bind(size=self._update_rect, pos=self._update_rect)
