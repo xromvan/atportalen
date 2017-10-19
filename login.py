@@ -15,35 +15,34 @@ from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import AsyncImage
 
-class CustomLayout(FloatLayout):
 
-    def __init__(self, **kwargs):
-        # make sure we aren't overriding any important functionality
-        super(CustomLayout, self).__init__(**kwargs)
-
-        with self.canvas.before:
-            Color(0, 1, 1, 1) 
-            self.rect = Rectangle(size=self.size, pos=self.pos)
-
-        self.bind(size=self._update_rect, pos=self._update_rect)
-
-    def _update_rect(self, instance, value):
-        self.rect.pos = instance.pos
-        self.rect.size = instance.size
-
-
-class LoginScreen(GridLayout):
+class LoginScreen(BoxLayout):
 
     def __init__(self, **kwargs):
 	
+	
+	#Prepare widgets needed for the login window
         super(LoginScreen, self).__init__(**kwargs)
-        self.cols = 1
+        
+        self.orientation='vertical'
+        self.padding=10
+        self.spacing=5
+		
+		#Add the logo
+        self.add_widget(
+            AsyncImage(
+                source="https://www.sahlgrenska.se/Areas/SU/Static/images/vgregion-wave.png",
+                size_hint= (1, .8),
+                pos_hint={'center_x':.46, 'center_y':.5}))
+		
+		#Add welcome text
         self.add_widget(Label(text="Välkommen AT läkare"))
         self.add_widget(Label(text="Skriv in dina initialer"))
-				
-        #Define Username widget
+		
+		#Define Username widget
         self.add_widget(Label(text='Användarnamn'))
         self.username = TextInput(multiline=False)
+		#self.username = TextInput(multiline=False, size=(200, 50), size_hint=(None, None))
         self.add_widget(self.username)
 		
         #Define password widget
@@ -51,25 +50,17 @@ class LoginScreen(GridLayout):
         self.password = TextInput(password=True, multiline=False)
         self.add_widget(self.password)
 		
-		#define a login button
-        self.add_widget(Button(text='Logga in'))
-		# Binding should be added to respond to the press down event
+		#define the login widget
+        self.login = Button(text='Logga in', background_color = (0,1,1,1))
+        self.add_widget(self.login)
+ 
 
 
 class AtPortal(App):
 
     def build(self):
-	    #Adding our main layout
+	#Adding our main layout
         login_screen = LoginScreen()
-        login_layout = CustomLayout()
-		
-        login_screen.add_widget(login_layout)
-        login_layout.add_widget(
-            AsyncImage(
-                source="https://www.sahlgrenska.se/Areas/SU/Static/images/vgregion-wave.png",
-                size_hint= (1, .8),
-                pos_hint={'center_x':.5, 'center_y':.5}))
-			
         return login_screen
 
 
