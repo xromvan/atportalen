@@ -9,77 +9,67 @@ Builder.load_string("""
     spacing: 5
     orientation: "vertical"
     cols: 1
-	Button:
+    Button:
       text: 'Anställning - Ledighet'
       background_color: [ 68, 44, 44, 0.5 ]
     Button:
       text: 'Tjänstgöring - Schema - Legitimation'
       background_color: [ 68, 44, 44, 0.5 ]
-	Button:
+    Button:
       #text: 'Utbildning - Kurser'
       background_color: [ 68, 44, 44, 0.5 ]
       text: 'Utbildning - Kurser' if self.state == 'normal' else 'Release me!'	  
-	Button:
+    Button:
       text: 'Utbildning - Kurser'
       background_color: [ 68, 44, 44, 0.5 ]
-	Button:
+    Button:
       text: 'Forskning - Förbättring'
       background_color: [ 68, 44, 44, 0.5 ]
-	Button:
+    Button:
       text: 'Handledning'
       background_color: [ 68, 44, 44, 0.5 ]
-	Button:
+    Button:
       text: 'AT-råd - AT-rum'
       background_color: [ 68, 44, 44, 0.5 ]
-	Button:
+    Button:
       text: 'Kontakt'
       background_color: [ 68, 44, 44, 0.5 ]
-	Button:
+    Button:
       text: 'Logga ut'
       background_color: [ 68, 44, 44, 0.5 ]
-	  on_press: root.manager.current = 'loggain'
-	
-	  
-  	
- 
-  
+      on_press: root.manager.current = 'loggain'
 	
 <LoginScreen>:
   BoxLayout:
     orientation: "vertical"
     cols: 1
-	spacing: 5
-	background_color: [ 200, 44, 44, 0.5 ]
+    spacing: 5
+    background_color: [ 200, 44, 44, 0.5 ]
     Label: 
       text:'Välkommen AT Läkare'
-	Label:
-	  text:'Skriv in dina initialer'
+    Label:
+      text:'Skriv in dina initialer'
 	  
-	#Define username widget
-	Label:
-	  text:'Användarnamn'
-	TextInput:
-	  multiline:False
-	  
-	#Define password widget
-	Label:
-	  text:'Lösenord'
-	TextInput:
-	  
-	  multiline:False
-	  password:True
-	  
-	#Define login widget
+    #Define username widget
+    Label:
+      text:'Användarnamn'
+    TextInput:
+      multiline:False
+    #Define password widget
+    Label:
+      text:'Lösenord'
+    TextInput:
+      multiline:False
+      password:True
+    #Define login widget
     Button:
       text: 'Logga in'
       on_press: root.manager.current = 'mainmenu'
-	  background_color: [ 68, 44, 44, 0.5 ]
-		
+      background_color: [ 68, 44, 44, 0.5 ]	
 """)
 
 class LoginScreen(Screen):
-    pass
-	
+    pass	
 class AtPortal(Screen):
     pass
 	
